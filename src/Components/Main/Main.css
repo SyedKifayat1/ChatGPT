@@ -60,14 +60,15 @@
 .main .cards {
     
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); /* Adjusted minimum card width */
-    gap: 20px; /* Increased gap between cards */
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); /* Adjusted minimum card width */
+    gap: 10px; /* Increased gap between cards */
     padding: 20px; /* Increased padding around the grid */
     
 }
 
 .main .card {
-    height: 150px; /* Increased card height for a more prominent display */
+    width: 180px;
+    height: 120px; /* Increased card height for a more prominent display */
     padding: 20px; /* Increased internal padding */
     background-color: #ffffff; /* White background */
     border-radius: 15px; /* Rounded corners */
@@ -75,6 +76,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
     overflow: hidden; /* Ensure content doesn't overflow */
     cursor: pointer; /* Pointer cursor for interaction */
+    font-size: 14px;
 }
 
 .main .card:hover {
@@ -165,7 +167,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align content to the right */
-    padding: 10px; /* Add some padding if needed */
+    padding: 0px; /* Add some padding if needed */
     /* margin-left: 40px; */
 }
 
@@ -174,8 +176,9 @@
     align-items: center;
     gap: 10px;
     background-color: #f0f4f9;
-    padding: 10px 20px;
+    padding: 5px 30px;
     border-radius: 50px;
+    width: 90%;
     max-width: 100%;
     transition: width 0.3s ease; /* Smooth transition when width changes */
 }
@@ -203,7 +206,7 @@
         gap: 0;
     }
     .main-bottom{
-        margin-left: -32px;
+        /* margin-left: -32px; */
     }
 }
 
@@ -372,6 +375,7 @@
     }
     .search-box {
         padding: 5px 10px;
+        margin-left: 5px;
     }
     .search-box div {
         gap: 5px;
@@ -434,11 +438,50 @@ pre code.hljs {
         
         width: 80%;
     }
+    .main-bottom {
+        
+        width: 75%;
+    }
 }
 
 @media (max-width: 776px){
+    .main-bottom-offSide {
+        width: 90%;
+    }
     .main-bottom {
         
         width: 90%;
+        padding-right: 0%;
+    }
+}
+
+@media (max-width: 440px){
+    .main .card{
+        height: 120px;
+        width: 90%;
+    }
+}
+
+@media (max-width: 1300px){
+    
+    .main-bottom-offSide {
+        
+        width: 90%;
+    }
+    /* .main-bottom {
+        
+        width: 75%;
+    } */
+}
+
+@media (max-width: 890px){
+    
+    /* .main-bottom-offSide {
+        
+        width: 90%;
+    } */
+    .main-bottom {
+        padding-right: 10%;
+        /* width: 70%; */
     }
 }

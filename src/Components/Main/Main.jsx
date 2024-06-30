@@ -111,7 +111,8 @@ const Main = ({isOpen}) => {
 
 
 
-
+    
+    
 
     
 
@@ -222,7 +223,8 @@ const Main = ({isOpen}) => {
                 {/* <div ref={resultsEndRef} /> */}
 
                 {/* <div className="main-bottom"> */}
-                <div className={!isOpen ? "main-bottom" : "main-bottom-offSide"}>
+                
+                <div className={isOpen ? "main-bottom" : "main-bottom-offSide"}>
                     <div className="search-box">
                         <div>
                             <img src={assets.gallery_icon} alt="" />

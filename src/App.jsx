@@ -48,7 +48,7 @@ const App = () => {
 
       <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar}  />
       <div className={`main ${isOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <Main />
+        <Main isOpen={isOpen}/>
       </div>
 
     </>
