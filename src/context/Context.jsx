@@ -41,6 +41,7 @@ const ContextProvider = (props) => {
     setPrevPrompts([]);
     if (window.innerWidth < 776) {
       setIsOpen(false);
+      setShowResult(false);
     }
   }
 
