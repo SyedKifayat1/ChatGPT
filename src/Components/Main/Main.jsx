@@ -50,7 +50,7 @@ const Main = () => {
         let updatedText = text.split("##").join("");
         updatedText = updatedText.split(`</code></pre>`).join("");
         updatedText = updatedText.split('<pre><code>').join("");
-        console.log(updatedText);
+        
         const utterance = new SpeechSynthesisUtterance(updatedText);
         utterance.voice = selectedVoice;
 
@@ -148,23 +148,23 @@ const Main = () => {
 
                         </div>
                         <div className="cards">
-                            <div className="card">
+                            <div className="card" onClick={() => onSent("Explain Superconductor")}>
                                 <i className="fa-solid fa-graduation-cap" style={{ color: '#7DD2EC' }}></i>
 
                                 <p>Explain Superconductor</p>
 
                             </div>
-                            <div className="card">
+                            <div className="card" onClick={() => onSent("Activities to make friends in new city")}>
                                 <i className="fa-solid fa-pen" style={{ color: 'rgb(203, 139, 208)' }}></i>
                                 <p>Activities to make friends in new city</p>
 
                             </div>
-                            <div className="card">
+                            <div className="card" onClick={() => onSent("Experience Seoul like a local")}>
                                 <i className="fa-regular fa-lightbulb" style={{ color: '#E2C643' }}></i>
                                 <p>Experience Seoul like a local</p>
 
                             </div>
-                            <div className="card">
+                            <div className="card" onClick={() => onSent("Message to comfort a friend")}>
                                 <i className="fa-solid fa-plane-departure" style={{ color: '#E2C643' }}></i>
 
                                 <p>Message to comfort a friend</p>
