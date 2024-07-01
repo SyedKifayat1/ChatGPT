@@ -13,19 +13,19 @@ const Main = () => {
     const [stopVoice, setStopVoice] = useState(false);
     const inputRef = useRef(null);
     const containerRef = useRef(null);
-    
+
 
     useEffect(() => {
         const scrollToBottom = () => {
-          if (containerRef.current ) {
-            containerRef.current.scrollTop = containerRef.current.scrollHeight;
-          }
+            if (containerRef.current) {
+                containerRef.current.scrollTop = containerRef.current.scrollHeight;
+            }
         };
-    
+
         scrollToBottom();
-      }, [prevPrompts]);
-    
-      
+    }, [prevPrompts]);
+
+
 
     const endOfMessagesRef = useRef(null);
 
@@ -44,17 +44,35 @@ const Main = () => {
 
 
     const [stopVoiceMap, setStopVoiceMap] = useState({});
+    function setMaleVoice(utterance) {
+        // Fetch the list of available voices
+        const voices = window.speechSynthesis.getVoices();
+
+        // Filter voices to find a male voice
+        const maleVoice = voices.find(voice => voice.gender === 'male') || voices.find(voice => voice.name.includes('Male'));
+
+        // If a male voice is found, set it to the utterance
+        if (maleVoice) {
+            utterance.voice = maleVoice;
+        } else {
+            console.log('No male voice found. Using default voice.');
+        }
+    }
 
     const textToSpeech = (index, text) => {
-        
+
         let updatedText = text.split("##").join("");
         updatedText = updatedText.split(`</code></pre>`).join("");
         updatedText = updatedText.split('<pre><code>').join("");
         updatedText = updatedText.split('<span class="bold-text">').join("");
         updatedText = updatedText.split('</span>').join("");
-        
+
+        // const utterance = new SpeechSynthesisUtterance(updatedText);
+        // utterance.voice = selectedVoice;
         const utterance = new SpeechSynthesisUtterance(updatedText);
-        utterance.voice = selectedVoice;
+
+        // Set a male voice
+        setMaleVoice(utterance);
 
         utterance.onstart = () => {
             setStopVoiceMap(prevMap => ({
@@ -141,7 +159,7 @@ const Main = () => {
                 </div>
             </div>
 
-            <div className="main-container"ref={containerRef}>
+            <div className="main-container" ref={containerRef}>
                 {!showResult ? (
 
                     <>
@@ -180,7 +198,7 @@ const Main = () => {
                         prevPrompts.slice(0, -1).map((item, index) => (
                             <div key={index} className='result'>
                                 <div className="result-title">
-                                    
+
                                     <i className="fa-regular fa-user"></i>
                                     <p style={{ whiteSpace: 'pre-wrap' }}>{item.prompt}</p>
                                 </div>
@@ -214,7 +232,7 @@ const Main = () => {
                         {prevPrompts.length > 0 && (
                             <div className='result'>
                                 <div className="result-title" >
-                                    
+
                                     <i className="fa-regular fa-user"></i>
                                     <p style={{ whiteSpace: 'pre-wrap' }}>
                                         {prevPrompts[prevPrompts.length - 1].prompt}
