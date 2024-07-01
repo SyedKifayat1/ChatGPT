@@ -46,9 +46,11 @@ const Main = () => {
     const [stopVoiceMap, setStopVoiceMap] = useState({});
 
     const textToSpeech = (index, text) => {
+        
         let updatedText = text.split("##").join("");
-        updatedText = text.split(`pre><code`).join("");
-        updatedText = text.split(`/code/pre>`).join("");
+        updatedText = updatedText.split(`</code></pre>`).join("");
+        updatedText = updatedText.split('<pre><code>').join("");
+        console.log(updatedText);
         const utterance = new SpeechSynthesisUtterance(updatedText);
         utterance.voice = selectedVoice;
 
