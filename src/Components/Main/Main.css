@@ -218,6 +218,7 @@
     height: 40px;
     margin: -20px 0 0 -20px;
     border-radius: 50%;
+    /* background: rgba(40, 147, 86, 0.3); */
     background: rgba(0, 123, 255, 0.3);
     animation: wave 1.2s infinite;
 }
@@ -443,6 +444,10 @@ pre code.hljs {
 }
 
 @media (max-width: 776px){
+    .main-container {
+        height: calc(100vh - 150px); /* Adjust height for mobile screens */
+        margin: 70px auto 60px auto;
+      }
     .main-bottom,.main-bottom-offSide {
         
         width: 90% !important;

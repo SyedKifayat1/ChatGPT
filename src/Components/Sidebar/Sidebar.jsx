@@ -5,6 +5,9 @@ const MySidebar = () => {
     const { onSent, prevPrompts, newChat, isOpen, toggleSidebar } = useContext(Context);
     const loadPrompt = async (prompt) => {
         try {
+            if (window.innerWidth < 776) {
+                toggleSidebar();
+            }
             await onSent(prompt);
         } catch (error) {
             console.error("Error in loading prompt:", error);
@@ -40,7 +43,7 @@ const MySidebar = () => {
                         {prevPrompts.map((item, index) => {
                             return (
                                 <li key={index} onClick={() => loadPrompt(item.prompt)} className="recent-entry">
-                                    <a>{item.prompt.slice(0, 25)}</a>
+                                    <a>{item.prompt.slice(0, 20)}</a>
                                 </li>
                             )
                         })}
