@@ -445,7 +445,7 @@ pre code.hljs {
 
 @media (max-width: 776px){
     .main-container {
-        height: calc(90vh - 150px); /* Adjust height for mobile screens */
+        height: calc(80vh - 150px); /* Adjust height for mobile screens */
         margin: 70px auto 70px auto;
       }
     .main-bottom,.main-bottom-offSide {
