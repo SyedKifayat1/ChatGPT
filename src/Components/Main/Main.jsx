@@ -50,6 +50,8 @@ const Main = () => {
         let updatedText = text.split("##").join("");
         updatedText = updatedText.split(`</code></pre>`).join("");
         updatedText = updatedText.split('<pre><code>').join("");
+        updatedText = updatedText.split('<span class="bold-text">').join("");
+        updatedText = updatedText.split('</span>').join("");
         
         const utterance = new SpeechSynthesisUtterance(updatedText);
         utterance.voice = selectedVoice;
