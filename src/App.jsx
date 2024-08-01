@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from 'react'
+import React,{useContext} from 'react'
 import Sidebar from './Components/Sidebar/Sidebar'
 import Main from './Components/Main/Main'
 import "./Components/Sidebar/Sidebar.css"
